@@ -147,7 +147,7 @@ function Authentication({ isSignUp = false }) {
               )}
             </div>
             <button
-              className="w-full bg-accent-default hover:bg-accent-hover transition-colors text-white py-2 rounded-lg font-semibold shadow-md"
+              className="w-full bg-[#454591] hover:bg-[#5a5ab0] transition-colors text-white py-2 rounded-lg font-semibold shadow-glass"
               onClick={isSignUp ? onClickSignUp : onClickLogin}
             >
               {isSignUp ? "Sign Up" : "Log In"}
