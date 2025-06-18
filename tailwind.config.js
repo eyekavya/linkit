@@ -37,8 +37,8 @@ module.exports = {
           contrast: "#a78bfa",
         },
         button: {
-          default: "#454591", // Added for button
-          hover: "#5a5ab0", // Hover color for button
+          default: "#454591",
+          hover: "#5a5ab0",
         },
       },
       borderColor: {

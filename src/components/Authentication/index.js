@@ -1,11 +1,12 @@
 import { useState } from "react";
-// import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import authApi from "../../utils/firebase/auth/authApi";
 import fireStoreApi from "../../utils/firebase/firestore/db";
-import { toast } from "sonner";
 import { Eye, EyeOff, X } from "lucide-react";
+import { toast } from "sonner";
 
 function Authentication({ isSignUp = false }) {
+  const navigate = useNavigate();
   const [authData, setAuthData] = useState({
     name: "",
     email: "",
@@ -44,11 +45,15 @@ function Authentication({ isSignUp = false }) {
       email: authData?.email,
       createdAt: fireStoreApi.getTimeStamp(),
     });
+    navigate("/home");
   }
 
   async function onClickLogin() {
     if (!validateInputs()) return;
     const data = await authApi.signInWithEmailPassword(authData);
+    if (data?.user) {
+      navigate("/profile");
+    }
   }
 
   async function onResetPassword() {
@@ -75,7 +80,7 @@ function Authentication({ isSignUp = false }) {
               {isSignUp ? "Join Linkit" : "Welcome Back"}
             </h1>
             <p className="text-text-secondary mt-1">
-              {isSignUp ? "Sign up for free!" : "Log in to your Linktree"}
+              {isSignUp ? "Sign up for free!" : "Log in to your Linkit"}
             </p>
           </div>
           <form className="space-y-5">
@@ -155,9 +160,12 @@ function Authentication({ isSignUp = false }) {
           </form>
           <p className="text-center text-sm text-text-secondary mt-6">
             {isSignUp ? "Already have an account?" : "Don't have an account?"}
-            {/* <Link className="text-primary-default hover:underline">
+            <Link
+              className="text-primary-default hover:underline"
+              to={isSignUp ? "/login" : "/signup"}
+            >
               {isSignUp ? " Log in" : " Sign up"}
-            </Link> */}
+            </Link>
           </p>
         </div>
       </div>
