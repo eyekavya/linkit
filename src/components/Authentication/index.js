@@ -91,7 +91,7 @@ function Authentication({ isSignUp = false }) {
                 </label>
                 <input
                   className="w-full px-4 py-2 rounded-lg bg-input-background text-text-default placeholder-text-secondary border border-input-border focus:outline-none focus:ring-2 focus:ring-input-focus"
-                  type={showPassword ? "text" : "password"}
+                  type={"text"}
                   id="name"
                   name="name"
                   placeholder="Your name"
