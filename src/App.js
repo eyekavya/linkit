@@ -4,6 +4,7 @@ import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
+import Onboarding from "./components/Onboarding";
 import { Toaster } from "sonner";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/onboarding" element={<Onboarding />} />
           </Routes>
         </Router>
       </div>
