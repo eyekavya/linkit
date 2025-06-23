@@ -45,7 +45,7 @@ function Authentication({ isSignUp = false }) {
       email: authData?.email,
       createdAt: fireStoreApi.getTimeStamp(),
     });
-    navigate("/home");
+    navigate("/");
   }
 
   async function onClickLogin() {
